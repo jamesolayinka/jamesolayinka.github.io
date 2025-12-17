@@ -467,4 +467,32 @@ footer {
         top: var(--spacing-lg);
         right: var(--spacing-md);
     }
+
+    /* Resume Mobile */
+    .resume-grid {
+        grid-template-columns: 1fr;
+        /* Stack columns on mobile */
+    }
+
+    .resume-date {
+        text-align: left;
+        margin-bottom: 0.2rem;
+    }
+
+    .resume-item {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    /* General Mobile */
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
 }

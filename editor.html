@@ -80,13 +80,42 @@
             </div>
 
             <div class="form-group">
-                <label>Content (HTML supported)</label>
+                <label>Content (HTML + LaTeX supported)</label>
+                <div class="toolbar">
+                    <button type="button" onclick="insertTag('<b>', '</b>')">Bold</button>
+                    <button type="button" onclick="insertTag('<i>', '</i>')">Italic</button>
+                    <button type="button" onclick="insertTag('<pre><code>', '</code></pre>')">Code Block</button>
+                    <button type="button" onclick="insertTag('$$ ', ' $$')">Equation (Block)</button>
+                    <button type="button" onclick="insertTag('$ ', ' $')">Equation (Inline)</button>
+                    <button type="button" onclick="insertTag('<h3>', '</h3>')">Heading</button>
+                    <button type="button" onclick="insertTag('<ul>\n  <li>', '</li>\n</ul>')">List</button>
+                </div>
                 <textarea id="post-content" required placeholder="Write your content here..."></textarea>
             </div>
 
             <button type="submit" class="btn-publish">PUBLISH</button>
         </form>
     </div>
+
+    <script>
+        function insertTag(open, close) {
+            const textarea = document.getElementById('post-content');
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const text = textarea.value;
+
+            const before = text.substring(0, start);
+            const selection = text.substring(start, end);
+            const after = text.substring(end);
+
+            textarea.value = before + open + selection + close + after;
+
+            // Restore cursor position
+            textarea.selectionStart = start + open.length;
+            textarea.selectionEnd = end + open.length;
+            textarea.focus();
+        }
+    </script>
 
     <script type="module">
         import { db } from './js/firebase-config.js';

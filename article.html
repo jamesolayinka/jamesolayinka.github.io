@@ -13,36 +13,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <!-- Prism.js for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <header>
-            <div class="site-title"><a href="index.html">James Olayinka</a></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="blog.html" class="active">Blog</a></li>
-                </ul>
-            </nav>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-                Dark Mode
-            </button>
-        </header>
+        <header></header>
 
         <main id="article-content">
             <p>Loading article...</p>
         </main>
 
-        <footer>
-            <p>&copy; 2025 James Olayinka. All rights reserved.</p>
-            <div class="social-links">
-                <!-- Social links here -->
-            </div>
-        </footer>
+        <footer></footer>
     </div>
 
     <script src="js/script.js"></script>
@@ -89,6 +77,11 @@
                         ],
                         throwOnError: false
                     });
+
+                    // Highlight Code
+                    if (window.Prism) {
+                        Prism.highlightAll();
+                    }
                 } else {
                     main.innerHTML = '<p>Article not found.</p>';
                 }
