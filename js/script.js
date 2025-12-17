@@ -47,24 +47,46 @@ document.addEventListener('DOMContentLoaded', () => {
         { value: "21:00", label: "21:00 (9:00 PM)" }
     ];
 
-    function getBookedSlots() {
-        return JSON.parse(localStorage.getItem('bookedSlots')) || {};
-    }
+    // Import Firestore dynamically
+    let db, collection, addDoc, query, where, getDocs;
 
-    function saveBookedSlot(date, time) {
-        const slots = getBookedSlots();
-        if (!slots[date]) {
-            slots[date] = [];
+    async function initFirebase() {
+        try {
+            const module = await import('./firebase-config.js');
+            db = module.db;
+            const firestore = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
+            collection = firestore.collection;
+            addDoc = firestore.addDoc;
+            query = firestore.query;
+            where = firestore.where;
+            getDocs = firestore.getDocs;
+        } catch (e) {
+            console.error("Firebase init failed:", e);
         }
-        slots[date].push(time);
-        localStorage.setItem('bookedSlots', JSON.stringify(slots));
     }
 
-    function updateTimeOptions(selectedDate) {
-        const booked = getBookedSlots()[selectedDate] || [];
+    initFirebase();
+
+    async function getBookedSlots(date) {
+        if (!db) return [];
+        const q = query(collection(db, "bookings"), where("date", "==", date));
+        const querySnapshot = await getDocs(q);
+        const booked = [];
+        querySnapshot.forEach((doc) => {
+            booked.push(doc.data().time);
+        });
+        return booked;
+    }
+
+    async function updateTimeOptions(selectedDate) {
+        timeSelect.innerHTML = '<option value="">Loading slots...</option>';
+        timeSelect.disabled = true;
+
+        const booked = await getBookedSlots(selectedDate);
 
         // Clear existing options
         timeSelect.innerHTML = '<option value="">Select Time</option>';
+        timeSelect.disabled = false;
 
         allTimeSlots.forEach(slot => {
             if (!booked.includes(slot.value)) {
@@ -99,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Date Validation (Saturdays Only) & Availability Check
-        dateInput.addEventListener('change', (e) => {
+        dateInput.addEventListener('change', async (e) => {
             const dateVal = e.target.value;
             if (!dateVal) return;
 
@@ -116,11 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 dateError.textContent = "";
                 dateInput.setCustomValidity("");
                 timeSelect.disabled = false;
-                updateTimeOptions(dateVal);
+                await updateTimeOptions(dateVal);
             }
         });
 
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const dateVal = document.getElementById('chat-date').value;
@@ -129,8 +151,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!dateVal || !timeVal) return;
 
-            // Save booking locally (Simulation)
-            saveBookedSlot(dateVal, timeVal);
+            // Save booking to Firestore
+            try {
+                await addDoc(collection(db, "bookings"), {
+                    date: dateVal,
+                    time: timeVal,
+                    message: msgVal,
+                    createdAt: new Date()
+                });
+            } catch (e) {
+                console.error("Error booking slot:", e);
+                alert("Failed to book slot. Please check your connection.");
+                return;
+            }
 
             // Create Start/End DateTimes for Google Calendar
             // Format: YYYYMMDDThhmmss

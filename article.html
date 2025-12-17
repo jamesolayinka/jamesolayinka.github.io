@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | James Olayinka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="site-title"><a href="index.html">James Olayinka</a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                Dark Mode
+            </button>
+        </header>
+
+        <main id="article-content">
+            <p>Loading article...</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 James Olayinka. All rights reserved.</p>
+            <div class="social-links">
+                <!-- Social links here -->
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script type="module">
+        import { db } from './js/firebase-config.js';
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const main = document.getElementById('article-content');
+        const urlParams = new URLSearchParams(window.location.search);
+        const docId = urlParams.get('id');
+
+        async function loadArticle() {
+            if (!docId) {
+                main.innerHTML = '<p>Article not found.</p>';
+                return;
+            }
+
+            try {
+                const docRef = doc(db, "posts", docId);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const post = docSnap.data();
+                    document.title = `${post.title} | James Olayinka`;
+                    main.innerHTML = `
+                        <article>
+                            <header style="margin-bottom: 2rem;">
+                                <h1>${post.title}</h1>
+                                <time style="color: var(--accent-color); font-family: var(--font-main);">${post.date}</time>
+                            </header>
+                            <div class="content" style="font-family: var(--font-serif); font-size: 1.1rem;">
+                                ${post.content}
+                            </div>
+                        </article>
+                    `;
+
+                    // Render Math
+                    renderMathInElement(document.body, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '$', right: '$', display: false },
+                            { left: '\\(', right: '\\)', display: false },
+                            { left: '\\[', right: '\\]', display: true }
+                        ],
+                        throwOnError: false
+                    });
+                } else {
+                    main.innerHTML = '<p>Article not found.</p>';
+                }
+            } catch (error) {
+                console.error("Error loading article:", error);
+                main.innerHTML = '<p>Error loading article.</p>';
+            }
+        }
+
+        loadArticle();
+    </script>
+</body>
+
+</html>
