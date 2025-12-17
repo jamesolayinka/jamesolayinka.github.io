@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | James Olayinka</title>
+    <meta name="description" content="Resume of James Olayinka, Quantitative Finance Professional.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Techie Resume Styles */
+        .resume-header {
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .resume-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-header h1::before {
+            content: "./";
+            color: var(--accent-color);
+            margin-right: 0.2rem;
+        }
+
+        /* Interactive Resume Styles */
+        details {
+            margin-bottom: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        summary {
+            cursor: pointer;
+            padding: var(--spacing-md);
+            list-style: none;
+            background-color: var(--code-bg);
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        summary:hover {
+            background-color: var(--border-color);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary h2 {
+            margin: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        summary::after {
+            content: "+";
+            font-weight: bold;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .section-content {
+            padding: var(--spacing-md);
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resume-item {
+            margin-bottom: var(--spacing-lg);
+            padding-left: 1rem;
+            border-left: 2px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .resume-item:hover {
+            border-left-color: var(--link-color);
+        }
+
+        .resume-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .resume-item-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .resume-item-date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background: var(--code-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .resume-item-subtitle {
+            width: 100%;
+            color: var(--link-color);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .resume-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .resume-list li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .skill-category {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .skill-list {
+            font-weight: 600;
+        }
+
+        /* Hide duplicate name in nav */
+
+        @media print {
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            .site-title {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="site-title"><a href="index.html" style="color: inherit; text-decoration: none;">James
+                    Olayinka</a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resume.html" class="active">Resume</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
+        </header>
+
+        <main>
+            <!-- Resume Header Removed as per request -->
+
+            <section class="resume-section">
+                <details open>
+                    <summary>
+                        <h2>Professional Experience</h2>
+                    </summary>
+                    <div class="section-content">
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">Bank of America</span>
+                                <span class="resume-item-date">July 2024 – Present</span>
+                            </div>
+                            <div class="resume-item-subtitle">Analyst, Global Market Business Data Office</div>
+                            <ul class="resume-list">
+                                <li>Contributed to quantitative development and delivery of key risk and data controls
+                                    covering
+                                    FRTB, T+0 Trader Risk, and Trading Book Controls.</li>
+                                <li>Drove adoption of financial data controls across Global Markets by conducting demos
+                                    and
+                                    walkthroughs.</li>
+                                <li>Collaborated cross-functionally to enhance transparency and timeliness in trading
+                                    book
+                                    reporting.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">Deutsche Bank</span>
+                                <span class="resume-item-date">June 2023 - August 2023</span>
+                            </div>
+                            <div class="resume-item-subtitle">Summer Analyst, Technology, Data, and Innovation (TDI)
+                            </div>
+                            <ul class="resume-list">
+                                <li>Applied NLP techniques (NER, Sentiment and Topic Analysis) on newsrooms to deliver
+                                    ESG
+                                    insights for strategic investments.</li>
+                                <li>Automated XML extraction and built a parser to detect materialized view issues,
+                                    boosting
+                                    data stability.</li>
+                                <li>Developed interactive analytics dashboards using Plotly and Dash to communicate
+                                    quantitative
+                                    insights.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">Moni (Y Combinator, W22)</span>
+                                <span class="resume-item-date">Jan 2023 – June 2023</span>
+                            </div>
+                            <div class="resume-item-subtitle">Product Analytics, Data Engineering Team</div>
+                            <ul class="resume-list">
+                                <li>Enhanced data reliability via automated quality checks for payment data across
+                                    diverse
+                                    analytics systems.</li>
+                                <li>Built scalable data pipelines to streamline integration and accelerate payments
+                                    processing
+                                    across 4 African countries.</li>
+                                <li>Engineered robust transaction pipelines for real-time monitoring of financial
+                                    metrics.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">Bank of America</span>
+                                <span class="resume-item-date">June 2022 – August 2022</span>
+                            </div>
+                            <div class="resume-item-subtitle">Summer Analyst, Global Markets Quantitative Services</div>
+                            <ul class="resume-list">
+                                <li>Collaborated on macro research regarding interest rate effects across asset classes.
+                                </li>
+                                <li>Analyzed break items in upstream data systems to optimize client assets segregation
+                                    in GCMS.
+                                </li>
+                                <li>Built an automated validation framework, cutting manual checks by 50% in the GCMS
+                                    process.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <section class="resume-section">
+                <details>
+                    <summary>
+                        <h2>Leadership</h2>
+                    </summary>
+                    <div class="section-content">
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">The Emerge Youth Innovation Initiative</span>
+                                <span class="resume-item-date">July 2023 - Present</span>
+                            </div>
+                            <div class="resume-item-subtitle">Co-Founder and Strategy Lead</div>
+                            <ul class="resume-list">
+                                <li>Founded <strong>African Students’ Network (ASN)</strong>, leading 30+ volunteers
+                                    impacting
+                                    2k+ students.</li>
+                                <li>Leading a <strong>Digital Startup School</strong> project with 20+ ambassadors to
+                                    empower
+                                    youth innovators.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <section class="resume-section">
+                <details>
+                    <summary>
+                        <h2>Education</h2>
+                    </summary>
+                    <div class="section-content">
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">University of Ibadan</span>
+                                <span class="resume-item-date">June 2024</span>
+                            </div>
+                            <div class="resume-item-subtitle">B.Sc. Industrial and Systems Engineering (3.85/4.00)</div>
+                            <ul class="resume-list">
+                                <li><strong>Thesis:</strong> Comparative Assessment of Forecasting Models for Nigeria's
+                                    Electricity Generation.</li>
+                                <li><strong>Honors:</strong> Faculty of Technology Dean’s List (Year 1 - 5); U7+
+                                    Alliance
+                                    Finalist; FSB Scholar.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-item">
+                            <div class="resume-item-header">
+                                <span class="resume-item-title">ARPM Quant Bootcamp</span>
+                                <span class="resume-item-date">August 2025</span>
+                            </div>
+                            <div class="resume-item-subtitle">Advanced Risk and Portfolio Management</div>
+                            <ul class="resume-list">
+                                <li><strong>Coursework:</strong> Linear Mean-Covariance Statistics, Probabilistic ML,
+                                    Time
+                                    Series, Financial Engineering.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <section class="resume-section">
+                <details>
+                    <summary>
+                        <h2>Skills & Interests</h2>
+                    </summary>
+                    <div class="section-content">
+                        <div class="skills-grid">
+                            <div>
+                                <span class="skill-category">Competencies:</span> Big Data, Quantitative Analytics,
+                                Machine
+                                Learning, Python, Cloud Tech, SQL.
+                            </div>
+                            <div>
+                                <span class="skill-category">Interests:</span> Podcasting, Tennis, Soccer, Social
+                                Impact.
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <div class="btn-download" style="margin-top: 3rem; text-align: center;">
+                <a href="#" class="btn" onclick="window.print(); return false;">Download PDF</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 James Olayinka. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

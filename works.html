@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works | James Olayinka</title>
+    <meta name="description" content="Portfolio of projects and research by James Olayinka.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .project-card {
+            border: 1px solid var(--border-color);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            background-color: var(--code-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: var(--accent-color);
+        }
+
+        .project-links {
+            margin-top: var(--spacing-md);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+        }
+
+        .project-links a {
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="site-title"><a href="index.html" style="color: inherit; text-decoration: none;">James
+                    Olayinka</a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="works.html" class="active">Works</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
+        </header>
+
+        <main>
+            <h1>./works</h1>
+            <p class="lead">A collection of code, models, and experiments.</p>
+
+            <div class="projects-grid">
+                <!-- Project 1: Pythonista -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h2 class="project-title">Pythonista</h2>
+                    </div>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Automation</span>
+                        <span>Scripts</span>
+                    </div>
+                    <p class="project-description">
+                        Just a guy out here playing with snakes and turning ideas into Pythonic mischief.
+                        A collection of scripts, tools, and experiments exploring the versatility of Python.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/jamesolayinka/Pythonista" target="_blank">View Source</a>
+                    </div>
+                </article>
+
+                <!-- Project 2: MarketPulse -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h2 class="project-title">MarketPulse</h2>
+                    </div>
+                    <div class="project-tags">
+                        <span>Kafka</span>
+                        <span>Spark</span>
+                        <span>Real-time</span>
+                        <span>Data Eng</span>
+                    </div>
+                    <p class="project-description">
+                        Simple, sleek, and evokes the idea of real-time streaming and monitoring of market data.
+                        Built with Kafka and Spark in Python to handle high-throughput financial data streams.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/jamesolayinka/MarketPulse" target="_blank">View Source</a>
+                    </div>
+                </article>
+
+                <!-- Project 3: Quantitative-Finance-Playground -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h2 class="project-title">Quant-Finance-Playground</h2>
+                    </div>
+                    <div class="project-tags">
+                        <span>Quant Finance</span>
+                        <span>Risk Mgmt</span>
+                        <span>Pricing Models</span>
+                    </div>
+                    <p class="project-description">
+                        Diving into quantitative finance with models for pricing, risk management, and strategy.
+                        Brewed with math, code, and coffee. Contains implementations of various financial models.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/jamesolayinka/Quantitative-Finance-Playground" target="_blank">View
+                            Source</a>
+                    </div>
+                </article>
+
+                <!-- Project 4: Macro-Financial Linkages -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h2 class="project-title">Macro-Financial Linkages</h2>
+                    </div>
+                    <div class="project-tags">
+                        <span>Econometrics</span>
+                        <span>Regime-Switching</span>
+                        <span>Strategies</span>
+                    </div>
+                    <p class="project-description">
+                        Macro-Financial Linkages Between Equity and Commodity Markets: A Regime-Switching Econometric
+                        Analysis of Daily and Long-Term Strategies.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/jamesolayinka/macro-financial-linkages-regime-switching-analysis"
+                            target="_blank">View Source</a>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 James Olayinka. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

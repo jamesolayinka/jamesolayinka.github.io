@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | James Olayinka</title>
+    <meta name="description" content="Thoughts on quantitative finance, mathematics, and coding.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- KaTeX for Math Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-post {
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+
+        .post-meta {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .post-title {
+            margin-top: 0;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: var(--spacing-md);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="site-title"><a href="index.html" style="color: inherit; text-decoration: none;">James
+                    Olayinka</a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
+        </header>
+
+        <main>
+            <h1>Blog</h1>
+            <p class="lead">Notes on finance, math, and code.</p>
+
+            <div class="blog-list" style="margin-top: 3rem;">
+
+                <article class="blog-post">
+                    <div class="post-meta">December 15, 2024 &bull; 5 min read</div>
+                    <h2 class="post-title"><a href="#">Understanding the Black-Scholes Equation</a></h2>
+                    <p>
+                        The Black-Scholes model provides a theoretical estimate of the price of European-style options.
+                        The fundamental partial differential equation is given by:
+                    </p>
+                    <p>
+                        $$ \frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r
+                        S \frac{\partial V}{\partial S} - rV = 0 $$
+                    </p>
+                    <p>
+                        In this post, we derive this equation using Ito's Lemma and discuss the assumptions behind the
+                        model,
+                        specifically the log-normal distribution of stock prices.
+                    </p>
+                    <a href="#" class="read-more">Read Article &rarr;</a>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-meta">November 28, 2024 &bull; 8 min read</div>
+                    <h2 class="post-title"><a href="#">Introduction to Time Series Analysis with Python</a></h2>
+                    <p>
+                        Time series analysis is crucial for financial modeling. We explore the ARIMA model and how to
+                        implement it
+                        using the `statsmodels` library in Python. We'll look at stationarity, differencing, and
+                        autocorrelation.
+                    </p>
+                    <a href="#" class="read-more">Read Article &rarr;</a>
+                </article>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 James Olayinka. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

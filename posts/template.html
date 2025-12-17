@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Title | James Olayinka</title>
+    <meta name="description" content="Brief description of the post for SEO.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- KaTeX for Math Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <!-- Adjust path to css/style.css depending on folder depth. 
+         If this file is in /posts/, use ../css/style.css -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .post-header {
+            margin-bottom: var(--spacing-xl);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: var(--spacing-md);
+        }
+
+        .post-meta {
+            font-family: var(--font-sans);
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .post-content {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .post-content h2 {
+            margin-top: 2.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="site-title">James Olayinka</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../resume.html">Resume</a></li>
+                    <li><a href="../works.html">Works</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
+        </header>
+
+        <main>
+            <article>
+                <header class="post-header">
+                    <div class="post-meta">Date • Read Time</div>
+                    <h1>Post Title</h1>
+                </header>
+
+                <div class="post-content">
+                    <p>
+                        Start writing your post here. You can use HTML tags like &lt;p&gt;, &lt;h2&gt;, &lt;ul&gt;, etc.
+                    </p>
+
+                    <h2>Math Example</h2>
+                    <p>
+                        Inline math: \( E = mc^2 \)
+                    </p>
+                    <p>
+                        Block math:
+                        $$ \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi} $$
+                    </p>
+                </div>
+            </article>
+
+            <div style="margin-top: 3rem;">
+                <a href="../blog.html">&larr; Back to Blog</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 James Olayinka. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Adjust path to js/script.js -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
