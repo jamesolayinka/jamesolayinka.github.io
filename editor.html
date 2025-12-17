@@ -124,13 +124,20 @@
         document.getElementById('post-form').addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const title = document.getElementById('post-title').value;
-            const slug = document.getElementById('post-slug').value;
-            const desc = document.getElementById('post-desc').value;
-            const content = document.getElementById('post-content').value;
+            const title = document.getElementById('post-title').value.trim();
+            const slug = document.getElementById('post-slug').value.trim();
+            const desc = document.getElementById('post-desc').value.trim();
+            const content = document.getElementById('post-content').value.trim();
+
+            console.log("Submitting post:", { title, slug, desc, contentLength: content.length });
+
+            if (!title || !slug || !desc || !content) {
+                alert('Please fill in all fields.');
+                return;
+            }
 
             try {
-                await addDoc(collection(db, "posts"), {
+                const docRef = await addDoc(collection(db, "posts"), {
                     title,
                     slug,
                     description: desc,
@@ -138,11 +145,12 @@
                     createdAt: serverTimestamp(),
                     date: new Date().toISOString().split('T')[0]
                 });
+                console.log("Document written with ID: ", docRef.id);
                 alert('Post published successfully!');
                 document.getElementById('post-form').reset();
             } catch (error) {
                 console.error("Error adding document: ", error);
-                alert('Error publishing post. Check console.');
+                alert('Error publishing post: ' + error.message);
             }
         });
     </script>
